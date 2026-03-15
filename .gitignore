@@ -20,3 +20,8 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Local runtime artifacts
+*.db
+*.sqlite
+body.json
+music.json

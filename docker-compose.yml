@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pixflix-api
+    ports:
+      - "8000:8000"
+    environment:
+      PIXFLIX_WEBHOOK_TOKEN: local-dev-token
+      PIXFLIX_DEFAULT_AMOUNT_CENTS: 100
+      PIXFLIX_PIX_PROVIDER: mock
+      PIXFLIX_DATABASE_URL: sqlite:////data/pixflix.db
+    volumes:
+      - pixflix_data:/data
+    restart: unless-stopped
+
+volumes:
+  pixflix_data:
+
